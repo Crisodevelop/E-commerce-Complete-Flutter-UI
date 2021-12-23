@@ -41,8 +41,8 @@ class Body extends GetWidget<AuthController> {
                     SocalCard(
                       icon: "assets/icons/google-icon.svg",
                       press: () {
-                      controller.signInWithGoogle();       
-                      // authController.signInWithGoogle();           
+                      // controller.signInWithGoogle();       
+                      authController.signInWithGoogle();           
                     },
                     ),
                     SocalCard(
