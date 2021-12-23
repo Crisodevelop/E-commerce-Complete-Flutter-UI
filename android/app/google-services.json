@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "738653255961",
+    "project_id": "delivey-875fa",
+    "storage_bucket": "delivey-875fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738653255961:android:599b0d296e79e56852ad88",
+        "android_client_info": {
+          "package_name": "com.criso.shop_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738653255961-a9g8h8q7d2e7f3rnui40dprlmom93niv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.criso.shop_app",
+            "certificate_hash": "12deb333d1b8c4b6373fb9059209231e396c59db"
+          }
+        },
+        {
+          "client_id": "738653255961-uc3nqmqj8f6vlurbea4mir7pp253ht1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArmKj72cuMK6DKaGW0K2qfDz7i80jfxiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738653255961-uc3nqmqj8f6vlurbea4mir7pp253ht1h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
