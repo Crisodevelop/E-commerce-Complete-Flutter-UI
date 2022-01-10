@@ -2,10 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shop_app/size_config.dart';
 
-import 'models/auth/AuthController.dart';
+import 'core/auth/google_sigin.dart';
+
 
 const kPrimaryColor = Color(0xFFFF7643);
 const kPrimaryLightColor = Color(0xFFFFECDF);
@@ -39,6 +41,7 @@ const String kMatchPassError = "Passwords don't match";
 const String kNamelNullError = "Please Enter your name";
 const String kPhoneNumberNullError = "Please Enter your phone number";
 const String kAddressNullError = "Please Enter your address";
+const String kNameNullError = "Please Enter your name";
 
 final otpInputDecoration = InputDecoration(
   contentPadding:
@@ -55,7 +58,7 @@ OutlineInputBorder outlineInputBorder() {
   );
 }
 
-AuthController authController = AuthController.instance;
+GoogleSigIn googleSigIn = GoogleSigIn.instance;
 final Future<FirebaseApp> firebaseInitialization = Firebase.initializeApp();
 FirebaseAuth auth = FirebaseAuth.instance;
 FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;

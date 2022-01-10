@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/core/auth/auth_service.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/helper/keyboard.dart';
 import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
-import 'package:shop_app/screens/login_success/login_success_screen.dart';
-
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -20,6 +19,8 @@ class _SignFormState extends State<SignForm> {
   String? password;
   bool? remember = false;
   final List<String?> errors = [];
+
+  
 
   void addError({String? error}) {
     if (!errors.contains(error))
@@ -73,11 +74,12 @@ class _SignFormState extends State<SignForm> {
           DefaultButton(
             text: "Continue",
             press: () {
+              _formKey.currentState!.save();
               if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save();
                 // if all are valid then go to success screen
+                print('1nnnnnnnnnnnnnnnnnn');
                 KeyboardUtil.hideKeyboard(context);
-                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                AuthService().signIn(email, password, context);
               }
             },
           ),
@@ -89,7 +91,7 @@ class _SignFormState extends State<SignForm> {
   TextFormField buildPasswordFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => password = newValue,
+      onSaved: (value) => password = value,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
@@ -122,7 +124,7 @@ class _SignFormState extends State<SignForm> {
   TextFormField buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
-      onSaved: (newValue) => email = newValue,
+      onSaved: (value) => email = value,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kEmailNullError);

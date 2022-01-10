@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shop_app/core/auth/facebook_signin.dart';
+import 'package:shop_app/core/auth/google_sigin.dart';
 import 'package:shop_app/components/no_account_text.dart';
 import 'package:shop_app/components/socal_card.dart';
 import 'package:shop_app/constants.dart';
-import 'package:shop_app/models/auth/AuthController.dart';
 import '../../../size_config.dart';
 import 'sign_form.dart';
 
-class Body extends GetWidget<AuthController> {
+class Body extends GetWidget<GoogleSigIn> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -42,12 +43,14 @@ class Body extends GetWidget<AuthController> {
                       icon: "assets/icons/google-icon.svg",
                       press: () {
                       // controller.signInWithGoogle();       
-                      authController.signInWithGoogle();           
+                      googleSigIn.signInWithGoogle();  
                     },
                     ),
                     SocalCard(
                       icon: "assets/icons/facebook-2.svg",
-                      press: () {},
+                      press: () {
+                        fbSignIn();
+                      },
                     ),
                     SocalCard(
                       icon: "assets/icons/twitter.svg",

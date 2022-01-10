@@ -28,7 +28,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     compileSdkVersion 28
-
+    buildToolsVersion '30.0.3'
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -63,4 +63,5 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation platform('com.google.firebase:firebase-bom:29.0.3')
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
 }

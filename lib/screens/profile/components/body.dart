@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:shop_app/constants.dart';
-import 'package:shop_app/models/auth/AuthController.dart';
+import 'package:shop_app/core/auth/auth_service.dart';
 
 import 'profile_menu.dart';
 import 'profile_pic.dart';
 
-class Body extends GetWidget<AuthController>{
+class Body extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -39,6 +37,7 @@ class Body extends GetWidget<AuthController>{
             text: "Log Out",
             icon: "assets/icons/Log out.svg",
             press: () {
+              AuthService().sigOut();
             },
           ),
         ],

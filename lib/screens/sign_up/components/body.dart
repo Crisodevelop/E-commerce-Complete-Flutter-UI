@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:shop_app/components/socal_card.dart';
 import 'package:shop_app/constants.dart';
-import 'package:shop_app/models/auth/AuthController.dart';
 import 'package:shop_app/size_config.dart';
 
 import 'sign_up_form.dart';
 
-class Body extends GetWidget<AuthController> {
+class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -33,8 +31,7 @@ class Body extends GetWidget<AuthController> {
                   children: [
                     SocalCard(
                       icon: "assets/icons/google-icon.svg",
-                      press: () {
-                      },
+                      press: () {},
                     ),
                     SocalCard(
                       icon: "assets/icons/facebook-2.svg",
