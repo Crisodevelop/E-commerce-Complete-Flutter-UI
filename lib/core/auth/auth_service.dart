@@ -61,7 +61,7 @@ class AuthService extends GetxController {
       await auth
           .createUserWithEmailAndPassword(email: email, password: password)
           .then((user) async {
-        saveUser(user);
+        saveUser(user, name);
       });
 
        Get.offAll(LoginSuccessScreen());
@@ -71,11 +71,11 @@ class AuthService extends GetxController {
     }
   }
 
-    void saveUser(UserCredential user) async {
+    void saveUser(UserCredential user, name) async {
     await FireStoreUser().addUserToFireStore(UserModel(
       userId: user.user!.uid,
       email: user.user!.email,
-      name: '',
+      name: name,
       pic: '',
     ));
   }

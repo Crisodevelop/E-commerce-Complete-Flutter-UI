@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
+import 'package:shop_app/core/auth/auth_service.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -41,8 +42,8 @@ class _SignUpFormState extends State<SignUpForm> {
       key: _formKey,
       child: Column(
         children: [
-          // buildNameFormField(),
-          // SizedBox(height: getProportionateScreenHeight(30)),
+          buildNameFormField(),
+          SizedBox(height: getProportionateScreenHeight(30)),
           buildEmailFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
           buildPasswordFormField(),
@@ -56,7 +57,7 @@ class _SignUpFormState extends State<SignUpForm> {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
                 // if all are valid then go to success screen
-                //  AuthService().signup(email, password, name, context);
+                 AuthService().signup(email, password, name, context);
               }
             },
           ),
@@ -167,32 +168,31 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 
 
-  // TextFormField buildNameFormField() {
-  //   return TextFormField(
-  //     obscureText: true,
-  //     onSaved: (newValue) => name = newValue,
-  //     onChanged: (value) {
-  //       if (value.isNotEmpty) {
-  //         removeError(error: kNameNullError);
-  //       } 
-  //       name = value;
-  //     },
-  //     validator: (value) {
-  //       if (value!.isEmpty) {
-  //         addError(error: kNameNullError);
-  //         return "";
-  //       }
-  //       return null;
-  //     },
-  //     decoration: InputDecoration(
-  //       labelText: "name",
-  //       hintText: "Enter your name",
-  //       // If  you are using latest version of flutter then lable text and hint text shown like this
-  //       // if you r using flutter less then 1.20.* then maybe this is not working properly
-  //       floatingLabelBehavior: FloatingLabelBehavior.always,
-  //       suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
-  //     ),
-  //   );
-  // }
+  TextFormField buildNameFormField() {
+    return TextFormField(
+      onSaved: (newValue) => name = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: kNameNullError);
+        } 
+        name = value;
+      },
+      validator: (value) {
+        if (value!.isEmpty) {
+          addError(error: kNameNullError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "name",
+        hintText: "Enter your name",
+        // If  you are using latest version of flutter then lable text and hint text shown like this
+        // if you r using flutter less then 1.20.* then maybe this is not working properly
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+      ),
+    );
+  }
 
 }
