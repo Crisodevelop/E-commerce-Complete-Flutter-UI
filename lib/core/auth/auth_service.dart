@@ -18,10 +18,10 @@ class AuthService extends GetxController {
   Rxn<User> _user = Rxn<User>();
   String? get user => _user.value?.email;
 
-  // void onInit(){
-  //   super.onInit();
-  //   // _user.bindStream(auth.authStateChanges());
-  // }
+  void onInit(){
+    super.onInit();
+    // _user.bindStream(auth.authStateChanges());
+  }
 
 
 
