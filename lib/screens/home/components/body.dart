@@ -14,23 +14,25 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<HomeViewModel>(
       init: HomeViewModel(),
-      builder: (controller) => SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: getProportionateScreenHeight(20)),
-              HomeHeader(),
-              SizedBox(height: getProportionateScreenWidth(10)),
-              DiscountBanner(),
-              Categories(),
-              SpecialOffers(),
-              SizedBox(height: getProportionateScreenWidth(30)),
-              PopularProducts(),
-              SizedBox(height: getProportionateScreenWidth(30)),
-            ],
-          ),
-        ),
-      ),
+      builder:  (controller) => controller.loading.value
+          ? Center(child: CircularProgressIndicator())
+          : SafeArea(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(height: getProportionateScreenHeight(20)),
+                    HomeHeader(),
+                    SizedBox(height: getProportionateScreenWidth(10)),
+                    DiscountBanner(),
+                    Categories(),
+                    SpecialOffers(),
+                    SizedBox(height: getProportionateScreenWidth(30)),
+                    PopularProducts(),
+                    SizedBox(height: getProportionateScreenWidth(30)),
+                  ],
+                ),
+              ),
+            ),
     );
   }
 }
